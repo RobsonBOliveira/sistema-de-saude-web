@@ -19,8 +19,8 @@ public class Main {
 
         //pacientedao.delete(paciente1, "pacientes_teste");
 
-        //List<Paciente> listadepacientes = pacientedao.list("pacientes_teste");
-        //for(Paciente paciente : listadepacientes)
-        //    System.out.println(paciente);
+        List<Paciente> listadepacientes = pacientedao.list("pacientes_teste");
+        for(Paciente paciente : listadepacientes)
+           System.out.println(paciente);
     }
 }
