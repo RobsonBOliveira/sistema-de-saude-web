@@ -21,6 +21,6 @@ public class Main {
 
         List<Paciente> listadepacientes = pacientedao.list("pacientes_teste");
         for(Paciente paciente : listadepacientes)
-           System.out.println(paciente);
+            System.out.println(paciente);
     }
 }
