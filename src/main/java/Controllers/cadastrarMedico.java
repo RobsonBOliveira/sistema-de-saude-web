@@ -1,6 +1,8 @@
 package Controllers;
 
 
+import BancoDeDados.Medico;
+import DAO.MedicoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,25 +18,18 @@ public class cadastrarMedico extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.doGet(request, response);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html; charset=UTF-8");
-    }
+        String crmStr = request.getParameter("crm");
+        String nome = request.getParameter("nome");
+        String telefone = request.getParameter("telefone");
+        String especializacao = request.getParameter("especializacao");
 
-    /*@Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter writer = response.getWriter();
-        writer.println("<html>");
-        writer.println("<body>");
-        writer.println("<h1>Hello, World!</h1>");
-        writer.println("</body>");
-        writer.println("</html>");
-    }*/
+        Integer crm = Integer.parseInt(crmStr);
+        Medico medico = new Medico(crm, nome, telefone, especializacao);
+        MedicoDAO medicodao = new MedicoDAO("sistemasaude", "postgres", "1406");
+        medicodao.create_table("medicos");
+        medicodao.insert(medico, "medicos");
+    }
 }
 
 
