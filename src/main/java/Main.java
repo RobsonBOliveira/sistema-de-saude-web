@@ -1,4 +1,5 @@
 import BancoDeDados.Paciente;
+import DAO.ExameDAO;
 import DAO.PacienteDAO;
 
 import java.util.List;
@@ -19,8 +20,11 @@ public class Main {
 
         //pacientedao.delete(paciente1, "pacientes_teste");
 
-        List<Paciente> listadepacientes = pacientedao.list("pacientes_teste");
-        for(Paciente paciente : listadepacientes)
-                System.out.println(paciente);
+        //List<Paciente> listadepacientes = pacientedao.list("pacientes_teste");
+        //for(Paciente paciente : listadepacientes)
+        //        System.out.println(paciente);
+
+        ExameDAO examesdas = new ExameDAO("sistemasaude", "postgres", "1406");
+        examesdas.create_table("exames");
     }
 }
