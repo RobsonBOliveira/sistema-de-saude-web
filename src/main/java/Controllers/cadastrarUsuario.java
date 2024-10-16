@@ -7,30 +7,22 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
-@WebServlet ("/loginUsuario")
-public class loginUsuario extends HttpServlet {
-    public loginUsuario(){
+@WebServlet("/cadastrarUsuario")
+public class cadastrarUsuario extends HttpServlet {
+
+    public cadastrarUsuario(){
         super();
     }
-
-    private Connection con = null;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
+        String confirmarsenha = request.getParameter("confirmarsenha");
 
-        try {
-            Class.forName("org.postgresql.Driver");
-            String URL ="jdbc:postgresql://localhost:5432/sistemasaude";
-            con = DriverManager.getConnection(URL,login, senha);
 
-        } catch (SQLException | ClassNotFoundException e) {
-            System.out.println(e);
-        }
     }
+
+
 }
