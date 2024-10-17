@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    margin: 0;
+}
+.header > h1{
+    font-size: xxx-large;
+    background: #3dff33;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+    font-family: 'Poppins';
+    font-weight: normal;
+}
+
 .main{
     width: 100vw;
     height: 100vh;
@@ -6,14 +21,35 @@
     align-items:  center ;
     flex-direction: column;
 }
-.main > form > h3 {
-    margin: 0 0;
 
+
+.form{
+    border-style: solid;
+    margin: 0;
+    height: 50vh;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items:  center ;
+    flex-direction: column;
+    border-radius: 15%;
 }
-
-.main > h1 {
-    color: blue;
-    font-family: Calibri;
-    font-weight: 800;
+.form > form{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 10%;
+    align-self: start;
+    font-family: "Poppins", "serif";
+}
+.form > form > input{
+    height: 7vh;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    box-sizing: border-box;
+}
+.form > form > h3{
+    font-size: 3vh;
     margin: 0;
 }
