@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="estilo.css">
+
     <title>Login de Usuarios</title>
 </head>
 <body>
+<div class="main">
+    <h1>Login</h1>
     <form action="loginUsuario" method="post">
-        Login: <input type="text" name="login"> <br>
-        Senha: <input type="password" name="senha"> <br>
+        <h3>Usuario<br></h3>
+        <input type="text" name="login"> <br>
+        <h3>Senha<br></h3>
+        <input type="password" name="senha"> <br>
         <input type="submit" value="Conectar">
     </form>
-    <a href="cadastrarUsuario.html"><input type="button" value="Cadastrar Novo Usuario"></a>
+    <a href="cadastrarUsuario.html"><input type="button" value="Cadastrar Novo Usuário"></a>
+</div>
 </body>
 </html>

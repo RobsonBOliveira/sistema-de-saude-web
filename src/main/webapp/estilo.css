@@ -1,14 +1,25 @@
-.main > h3{
+.main2 > h3{
         font-family: "Calibri";
         font-weight: bold;
         color: #ff0000;
+        margin: 0px;
+}
+.main{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items:  center ;
+        flex-direction: column;
+}
+.main > form > h3 {
+        margin: 0px 0px;
+
 }
 
-.main {
-        background: #FFFFFF;
-
-}
-
-.main > form{
-        
+.main > h1{
+        color: blue;
+        font-family: Calibri;
+        font-weight: 800;
+        margin: 0px;
 }
