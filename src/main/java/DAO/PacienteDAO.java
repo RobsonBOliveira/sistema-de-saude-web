@@ -20,7 +20,7 @@ public class PacienteDAO {
             String user = "postgres";
             String pass = "luiz2014";
             this.con = DriverManager.getConnection(URL, user, pass);
-            //System.out.println("Conexao bem sucedida.");
+            System.out.println("Conexao bem sucedida.");
 
         }catch (Exception e){
         System.out.println(e);

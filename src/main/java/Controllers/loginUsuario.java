@@ -40,7 +40,7 @@ public class loginUsuario extends HttpServlet {
         if (conectado) {
             response.sendRedirect("teste.html");
         } else {
-            response.sendRedirect("cadastrarPaciente.html");
+            response.sendRedirect("loginUsuarioIncorreto.html");
         }
     }
 }
