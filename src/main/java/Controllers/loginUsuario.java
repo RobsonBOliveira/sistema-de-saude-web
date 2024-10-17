@@ -38,7 +38,7 @@ public class loginUsuario extends HttpServlet {
 
         // Redireciona com base no status da conexão
         if (conectado) {
-            response.sendRedirect("teste.html");
+            response.sendRedirect("paginaPrincipal.html");
         } else {
             response.sendRedirect("loginUsuarioIncorreto.html");
         }
