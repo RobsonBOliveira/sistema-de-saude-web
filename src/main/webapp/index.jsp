@@ -5,26 +5,25 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css">
 
-    <title>Login de Usuários</title>
+    <title>Login</title>
 </head>
 <body>
 <div class="header">
-  <h1>Hospital Figma balls</h1>
+  <h1>Hospital Ufersa</h1>
 </div>
 <div class="main">
   <div class="form">
     <form action="loginUsuario" method="post">
         <h3>Usuário<br></h3>
-        <input type="text" name="login"> <br>
+        <input type="text" name="login" placeholder="Usuário"> <br>
         <h3>Senha<br></h3>
-        <input type="password" name="senha"> <br>
-      <div class="buttonConect">
-        <input type="submit" value="Conectar">
+        <input type="password" name="senha" placeholder="Senha"> <br>
+      <div class="buttonConnect">
+        <input class="buttonConnect" type="submit" value="Login">
+
       </div>
+        <a href="cadastrarUsuario.html">Cadastrar Novo Usuário</a>
     </form>
-  </div>
-  <div class="button">
-    <a href="cadastrarUsuario.html"><input type="button" value="Cadastrar Novo Usuário"></a>
   </div>
 </div>
 </body>
