@@ -10,6 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+import static Controllers.loginUsuario.senha;
+import static Controllers.loginUsuario.usuario;
+
 @WebServlet("/cadastrarPaciente")
 public class cadastrarPaciente extends HttpServlet {
 
@@ -24,7 +27,7 @@ public class cadastrarPaciente extends HttpServlet {
         String telefone = request.getParameter("telefone");
 
         Paciente paciente = new Paciente(cpfStr, nome, telefone);
-        PacienteDAO pacientedao = new PacienteDAO("sistemasaude", "postgres", "luiz2014");
+        PacienteDAO pacientedao = new PacienteDAO("sistemasaude", usuario, senha);
         pacientedao.create_table("paciente");
         pacientedao.insert(paciente, "paciente");
     }

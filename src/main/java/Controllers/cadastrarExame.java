@@ -11,6 +11,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+import static Controllers.loginUsuario.senha;
+import static Controllers.loginUsuario.usuario;
+
 
 @WebServlet("/cadastrarExame")
 public class cadastrarExame extends HttpServlet {
@@ -26,7 +29,7 @@ public class cadastrarExame extends HttpServlet {
 
         Integer codigo_exame = Integer.parseInt(codigo_exameStr);
         Exame exame = new Exame(codigo_exame, nome_paciente, resultado);
-        ExameDAO examedao = new ExameDAO("sistemasaude", "postgres", "1406");
+        ExameDAO examedao = new ExameDAO("sistemasaude", usuario, senha);
         examedao.create_table("exames");
         examedao.insert(exame, "exames");
     }

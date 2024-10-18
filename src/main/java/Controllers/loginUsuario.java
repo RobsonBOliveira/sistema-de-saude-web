@@ -13,7 +13,8 @@ import java.sql.SQLException;
 
 @WebServlet("/loginUsuario")
 public class loginUsuario extends HttpServlet {
-
+    public static String usuario;
+    public static String senha;
     public loginUsuario() {
         super();
     }
@@ -23,8 +24,8 @@ public class loginUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String usuario = request.getParameter("usuario");
-        String senha = request.getParameter("senha");
+        usuario = request.getParameter("usuario");
+        senha = request.getParameter("senha");
         boolean conectado = false;
 
         try {
