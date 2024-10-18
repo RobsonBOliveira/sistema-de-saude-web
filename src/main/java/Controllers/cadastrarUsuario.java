@@ -35,7 +35,7 @@ public class cadastrarUsuario extends HttpServlet {
                         "grant all privileges on schema public to %s", usuario, senha, usuario);
                 Statement stm = con.createStatement();
                 stm.executeUpdate(sql);
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("loginUsuarioCadastrado.html");
             } catch (Exception e) {
                 System.out.println(e);
             }

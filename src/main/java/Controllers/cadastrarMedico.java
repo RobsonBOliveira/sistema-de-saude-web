@@ -10,6 +10,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static Controllers.loginUsuario.senha;
+import static Controllers.loginUsuario.usuario;
+
 @WebServlet("/cadastrarMedico")
 public class cadastrarMedico extends HttpServlet {
     public cadastrarMedico(){
@@ -25,7 +28,7 @@ public class cadastrarMedico extends HttpServlet {
 
         Integer crm = Integer.parseInt(crmStr);
         Medico medico = new Medico(crm, nome, telefone, especializacao);
-        MedicoDAO medicodao = new MedicoDAO("sistemasaude", "postgres", "1406");
+        MedicoDAO medicodao = new MedicoDAO("sistemasaude", usuario, senha);
         medicodao.create_table("medicos");
         medicodao.insert(medico, "medicos");
     }

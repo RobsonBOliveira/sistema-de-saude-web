@@ -2,12 +2,19 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="cadastrarUsuarioIncorreto.css">
   <title>Cadastrar Usuário</title>
 
 </head>
 <body>
-<div class="form">
-  <h3>Senhas diferentes</h3>
+  <div class="header">
+  <h1>Hospital Ufersa</h1>
+  </div>
+
+  <div class="main">
+    <h3>Erro! Verifique os campos e tente novamente.</h3>
+  <div class="form">
+
   <form action="cadastrarUsuario" method="post">
     <h3>Usuário</h3>
     <input type="text" name="usuario"> <br>
@@ -15,9 +22,10 @@
     <input type="password" name="senha"> <br>
     <h3>Confirmar Senha:</h3>
     <input type="password" name="confirmarsenha"> <br>
-    <div class="button"></div>
-    <input type="submit" value="Confirmar">
+    <div class="button"><input type="submit" value="Confirmar"></div>
+
   </form>
+</div>
 </div>
 </body>
 </html>
