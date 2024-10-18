@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="listarPacientes.css">
 </head>
 <body>
+<div class="header">
+  <h1>Hospital Ufersa</h1>
+</div>
+  <h2>Pacientes cadastrados:</h2>
 <table>
   <tr>
     <th>CPF</th>
