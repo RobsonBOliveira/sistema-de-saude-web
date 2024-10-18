@@ -15,12 +15,11 @@
   <div class="form">
     <form action="loginUsuario" method="post">
         <h3>Usuário<br></h3>
-        <input type="text" name="login" placeholder="Usuário"> <br>
+        <input type="text" name="usuario" placeholder="Usuário"> <br>
         <h3>Senha<br></h3>
         <input type="password" name="senha" placeholder="Senha"> <br>
       <div class="buttonConnect">
         <input class="buttonConnect" type="submit" value="Login">
-
       </div>
         <a href="cadastrarUsuario.html">Cadastrar Novo Usuário</a>
     </form>
