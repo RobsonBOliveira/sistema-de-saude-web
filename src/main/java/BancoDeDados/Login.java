@@ -7,7 +7,11 @@ public class Login {
 
     public Login() {}
 
-    public Login(String usuario, String senha, String nome) {}
+    public Login(String usuario, String senha, String nome) {
+        this.usuario = usuario;
+        this.senha = senha;
+        this.nome = nome;
+    }
 
     public String getUsuario() {
         return usuario;

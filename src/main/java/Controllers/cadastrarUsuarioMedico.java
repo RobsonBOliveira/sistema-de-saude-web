@@ -41,6 +41,8 @@ public class cadastrarUsuarioMedico extends HttpServlet {
             Statement stm = con.createStatement();
 
             LoginDAO logindao = new LoginDAO("sistemasaude", "admin", "admin");
+            System.out.println(usuario);
+            System.out.println(senha);
             Login login = new Login(usuario, senha, nome);
             logindao.insert(login);
             MedicoDAO medicodao = new MedicoDAO("sistemasaude", "admin", "admin");

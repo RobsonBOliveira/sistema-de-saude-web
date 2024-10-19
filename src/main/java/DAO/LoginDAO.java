@@ -52,7 +52,9 @@ public class LoginDAO {
             Statement stm = con.createStatement();
             ResultSet rs = stm.executeQuery(sql);
 
-            retorno = rs.getString("nome");
+            while(rs.next()){
+                retorno = rs.getString("nome");
+            }
 
         } catch (Exception e) {
             System.out.println(e);
