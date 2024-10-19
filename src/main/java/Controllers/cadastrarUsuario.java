@@ -14,15 +14,16 @@ import java.util.Objects;
 
 @WebServlet("/cadastrarUsuario")
 public class cadastrarUsuario extends HttpServlet {
-
+    public static String usuario;
+    public static String senha;
     public cadastrarUsuario(){
         super();
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String usuario = request.getParameter("usuario");
-        String senha = request.getParameter("senha");
+        usuario = request.getParameter("usuario");
+        senha = request.getParameter("senha");
         String confirmarsenha = request.getParameter("confirmarsenha");
 
         if(Objects.equals(senha, confirmarsenha)){

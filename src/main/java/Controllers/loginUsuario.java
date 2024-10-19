@@ -11,10 +11,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import static Controllers.cadastrarUsuario.senha;
+import static Controllers.cadastrarUsuario.usuario;
+
 @WebServlet("/loginUsuario")
 public class loginUsuario extends HttpServlet {
-    public static String usuario;
-    public static String senha;
+
     public loginUsuario() {
         super();
     }

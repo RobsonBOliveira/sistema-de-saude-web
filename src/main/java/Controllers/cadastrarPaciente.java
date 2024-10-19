@@ -10,8 +10,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import static Controllers.loginUsuario.senha;
-import static Controllers.loginUsuario.usuario;
+import static Controllers.cadastrarUsuario.senha;
+import static Controllers.cadastrarUsuario.usuario;
 
 @WebServlet("/cadastrarPaciente")
 public class cadastrarPaciente extends HttpServlet {

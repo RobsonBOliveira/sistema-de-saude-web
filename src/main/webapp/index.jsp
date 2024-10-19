@@ -3,7 +3,7 @@
 <html lang="pt-br" xmlns:br="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Style/index.css">
 
     <title>Login</title>
 </head>

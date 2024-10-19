@@ -1,13 +1,13 @@
 <%@ page import="DAO.PacienteDAO" %>
 <%@ page import="BancoDeDados.Paciente" %>
 <%@ page import="java.util.List" %>
-<%@ page import="static Controllers.loginUsuario.usuario" %>
-<%@ page import="static Controllers.loginUsuario.senha" %>
+<%@ page import="static Controllers.cadastrarUsuario.usuario" %>
+<%@ page import="static Controllers.cadastrarUsuario.senha" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Pacientes</title>
-    <link rel="stylesheet" href="listarPacientes.css">
+    <link rel="stylesheet" href="Style/listarPacientes.css">
 </head>
 <body>
 <div class="header">
