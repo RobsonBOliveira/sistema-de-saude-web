@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:br="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="Style/cadastrarConsulta.css">
+
+    <title>Cadastrar Consulta</title>
 </head>
 <body>
-    <form action="cadastrarConsulta" method="post">
-        Código:<input type="text" name="codigo"> <br>
-        Data: <input type="text" name="data"> <br>
-        Observação: <input type="text" name="observacao"> <br>
-        CRM: <input type="text" name="crm"> <br>
-        Nome do paciente: <input type="text" name="nome_paciente"> <br>
-        <input type="submit"value="Cadastrar">
-    </form>
+<div class="header">
+    <h1>Hospital Ufersa</h1>
+</div>
+
+<div class="main">
+    <div class="form">
+        <form action="cadastrarConsulta" method="post">
+                <h3>Código</h3>
+                <input type="text" name="codigo" placeholder="Código"><br>
+                <h3>Data</h3>
+                <input type="text" name="data" placeholder="Data"> <br>
+                <H3>Observação</H3>
+                <input type="text" name="observacao" placeholder="Observação"><br>
+                <h3>CRM</h3>
+                <input type="text" name="crm" placeholder="CRM"> <br>
+                <h3>Nome do paciente</h3>
+                <input type="text" name="nome_paciente" placeholder="Nome do Paciente"> <br>
+                <div class="button"><input type="submit"value="Confirmar"></div>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
