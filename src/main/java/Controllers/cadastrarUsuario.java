@@ -33,7 +33,8 @@ public class cadastrarUsuario extends HttpServlet {
                 String URL = String.format("jdbc:postgresql://localhost:5432/sistemasaude");
                 con = DriverManager.getConnection(URL, "admin", "admin");
                 String sql = String.format("create user %s with password '%s';" +
-                        "grant all privileges on database sistemasaude to %s", usuario, senha, usuario);
+                        "grant all privileges on database sistemasaude to %s;" +
+                        "alter user %s superuser", usuario, senha, usuario, usuario);
                 Statement stm = con.createStatement();
                 stm.executeUpdate(sql);
                 response.sendRedirect("cadastrarUsuarioMedico.html");

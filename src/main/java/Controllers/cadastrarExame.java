@@ -30,7 +30,7 @@ public class cadastrarExame extends HttpServlet {
         Integer codigo_exame = Integer.parseInt(codigo_exameStr);
         Exame exame = new Exame(codigo_exame, nome_paciente, resultado);
         ExameDAO examedao = new ExameDAO("sistemasaude", usuario, senha);
-        examedao.create_table("exames");
+        examedao.create_table();
         examedao.insert(exame, "exames");
     }
 }

@@ -1,30 +1,56 @@
-import BancoDeDados.Paciente;
-import DAO.ExameDAO;
-import DAO.PacienteDAO;
-
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class Main {
     public static void main(String[] args){
-        PacienteDAO pacientedao = new PacienteDAO("sistemasaude", "postgres", "1406");
-        Paciente paciente1 = new Paciente("111.111.111-11", "paciente1", "(11) 1111-1111");
-        //Paciente paciente2 = new Paciente("222.222.222-22", "paciente2", "(22) 2222-2222");
-        //Paciente paciente3 = new Paciente("333.333.333-33", "paciente3", "(33) 3333-3333");
-        //Paciente paciente4 = new Paciente("444.444.444-44", "paciente4", "(44) 4444-4444");
+        //coloque seu usuario do PostgreSQL
+        String user = "postgres";
+        //Coloque a sua senha do PostgreSQL
+        String pass = "1406";
 
-        pacientedao.create_table("pacientes_teste");
-        //pacientedao.insert(paciente1, "pacientes_teste");
-        //pacientedao.insert(paciente2, "pacientes_teste");
-        //pacientedao.insert(paciente3, "pacientes_teste");
-        //pacientedao.insert(paciente4, "pacientes_teste");
+        Connection con = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+            String URL = "jdbc:postgresql://localhost:5432/sistemasaude";
+            con = DriverManager.getConnection(URL, user, pass);
+            System.out.println("Conexão bem sucedida.");
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Conexão falhou.");
+        }
 
-        //pacientedao.delete(paciente1, "pacientes_teste");
+        String criar_tabela_login = "create table login(usuario varchar(100) not null primary key," +
+                "senha varchar(100) not null, nome varchar(50) not null)";
+        try {
+            Statement stm = con.createStatement();
+            stm.executeUpdate(criar_tabela_login);
+            System.out.println("Tabela criada.");
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Falha ao criar Tabela.");
+        }
 
-        //List<Paciente> listadepacientes = pacientedao.list("pacientes_teste");
-        //for(Paciente paciente : listadepacientes)
-        //        System.out.println(paciente);
+        String criar_user_admin = "create user admin with password 'admin';" +
+                "grant ALL PRIVILEGES ON DATABASE sistemasaude to admin;"+
+                "alter user admin createrole";
+        try{
+            Statement stm = con.createStatement();
+            stm.executeUpdate(criar_user_admin);
+            System.out.println("Usuário admin criado com sucesso.");
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Falha ao criar usuario admin.");
+        }
 
-        //ExameDAO examesdas = new ExameDAO("sistemasaude", "postgres", "1406");
-        //examesdas.create_table("exames");
+        String adicionar_admin_ao_login = "insert into login values ('admin','admin', 'admin')";
+        try{
+            Statement stm = con.createStatement();
+            stm.executeUpdate(adicionar_admin_ao_login);
+            System.out.println("Adicionado com sucesso.");
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Falha ao adicionar.");
+        }
     }
 }

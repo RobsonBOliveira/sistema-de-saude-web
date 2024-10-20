@@ -11,10 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import static Controllers.cadastrarUsuario.senha;
 import static Controllers.cadastrarUsuario.usuario;
@@ -41,18 +38,22 @@ public class cadastrarUsuarioMedico extends HttpServlet {
             Statement stm = con.createStatement();
 
             LoginDAO logindao = new LoginDAO("sistemasaude", "admin", "admin");
-            System.out.println(usuario);
-            System.out.println(senha);
             Login login = new Login(usuario, senha, nome);
             logindao.insert(login);
+
+            ResultSet rs = stm.executeQuery("select exists (select * from pg_tables where schemaname = 'public' " +
+                    "and tablename = 'medicos')");
             MedicoDAO medicodao = new MedicoDAO("sistemasaude", "admin", "admin");
             Medico medico = new Medico(crm, nome, telefone, especializacao);
+            if(rs.next()) {
+                medicodao.create_table();
+            }
             medicodao.insert(medico, "medicos");
 
             response.sendRedirect("loginUsuarioCadastrado.html");
         } catch (Exception e) {
             System.out.println(e);
-            response.sendRedirect("cadastrarMedicoIncorreto.html");
+            response.sendRedirect("cadastrarUsuarioMedicoIncorreto.html");
         }
     }
 }

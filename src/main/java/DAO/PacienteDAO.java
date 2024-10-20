@@ -39,8 +39,8 @@ public class PacienteDAO {
             }
     }
 
-    public boolean create_table(String table_name){
-        String sql = "create table " + table_name + "(cpf varchar(14) primary key, " +
+    public boolean create_table(){
+        String sql = "create table pacientes(cpf varchar(14) primary key, " +
                 "nome varchar(100) not null, telefone varchar(14));";
         try{
             Statement stm = con.createStatement();

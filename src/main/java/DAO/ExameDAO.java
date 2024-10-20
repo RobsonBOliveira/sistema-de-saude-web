@@ -40,8 +40,8 @@ public class ExameDAO {
         }
     }
 
-    public boolean create_table(String table_name){
-        String sql = "create table " + table_name + "(codigo_exame int primary key," +
+    public boolean create_table(){
+        String sql = "create table exames(codigo_exame int primary key," +
                 "nome_paciente varchar(100) not null, resultado varchar(100));";
         try{
             Statement stm = con.createStatement();

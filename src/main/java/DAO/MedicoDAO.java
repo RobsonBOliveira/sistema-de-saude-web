@@ -38,8 +38,8 @@ public class MedicoDAO {
         }
     }
 
-    public boolean create_table(String table_name){
-        String sql = "create table " + table_name + "(crm int primary key, nome varchar(100) not null," +
+    public boolean create_table(){
+        String sql = "create table medicos(crm int primary key, nome varchar(100) not null," +
                 "telefone varchar(14) not null, especializacao varchar(100) not null);";
         try{
             Statement stm = con.createStatement();
