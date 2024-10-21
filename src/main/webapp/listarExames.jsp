@@ -14,6 +14,14 @@
   <h1>Hospital Ufersa</h1>
 </div>
 <h2>Exames cadastrados:</h2>
+<div class="avisoExcluido">
+    <%
+        String mensagem = (String) request.getAttribute("mensagem");
+        if(mensagem != null){%>
+    <%=mensagem%>
+    <%
+        }%>
+</div>
 <table>
   <tr>
     <th>CPF</th>
@@ -22,14 +30,22 @@
   </tr>
   <%
     ExameDAO examedao = new ExameDAO("sistemasaude", usuario, senha);
-    List<Exame> exames = examedao.list("pacientes");
+    List<Exame> exames = examedao.list("exames");
 
     for(Exame exame: exames){
   %>
   <tr>
+      <form action="modificarExame" method="post">
    <td><%= exame.getCodigo_exame()%></td>
+      <input type="hidden" name="codigo_exame" value="<%=exame.getCodigo_exame()%>">
     <td><%= exame.getNome_paciente()%></td>
     <td><%= exame.getResultado()%></td>
+
+    <td bgcolor="white" style="border: 0; width: 5vh; cursor: pointer;">
+      <input id="botaoAlterar" type="submit" name="alterar" value="Alterar"></td>
+    <td bgcolor="white" style="border: 0;width: 5vh; cursor: pointer;">
+      <input id="botaoExcluir" type="submit" name="excluir" value="Excluir"></td>
+      </form>
   </tr>
   <%}
   %>

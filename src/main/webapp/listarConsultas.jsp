@@ -14,6 +14,14 @@
   <h1>Hospital Ufersa</h1>
 </div>
 <h2>Consultas cadastradas:</h2>
+<div class="avisoExcluido">
+  <%
+    String mensagem = (String) request.getAttribute("mensagem");
+    if(mensagem != null){%>
+  <%=mensagem%>
+  <%
+    }%>
+</div>
 <table>
   <tr>
     <th>Código</th>
@@ -29,11 +37,19 @@
     for(Consulta consulta : consultas) {
   %>
   <tr>
+    <form action="modificarConsulta" method="post">
     <td><%=consulta.getCodigo()%></td>
+      <input type="hidden" name="codigo" value="<%=consulta.getCodigo()%>">
     <td><%=consulta.getData()%></td>
     <td><%=consulta.getObservacao()%></td>
     <td><%=consulta.getCrm()%></td>
     <td><%=consulta.getNome_paciente()%></td>
+
+    <td bgcolor="white" style="border: 0; width: 5vh; cursor: pointer;">
+      <input id="botaoAlterar" type="submit" name="alterar" value="Alterar"></td>
+    <td bgcolor="white" style="border: 0;width: 5vh; cursor: pointer;">
+      <input id="botaoExcluir" type="submit" name="excluir" value="Excluir"></td>
+    </form>
   </tr>
   <%}
   %>

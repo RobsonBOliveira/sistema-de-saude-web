@@ -49,7 +49,7 @@
     </div>
 
     <div class="button-alterar">
-      <a href="teste.html">
+      <a href="listarExames.jsp">
         <input type="button" value="Alterar exames">
       </a>
     </div>

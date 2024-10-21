@@ -126,8 +126,8 @@ public class ExameDAO {
         }
     }
 
-    public boolean delete(Exame exame, String table_name) {
-        String sql = String.format("delete from %s where codigo_exame=%s", table_name, exame.getCodigo_exame());
+    public boolean delete(int codigo_exame) {
+        String sql = String.format("delete from exames where codigo_exame=%s",codigo_exame);
         try {
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);

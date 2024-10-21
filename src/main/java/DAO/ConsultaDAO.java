@@ -129,8 +129,8 @@ public class ConsultaDAO {
         }
     }
 
-    public boolean delete(Consulta consulta, String table_name) {
-        String sql = String.format("delete from %s where codigo=%s", table_name, consulta.getCodigo());
+    public boolean delete(int codigo_consulta) {
+        String sql = String.format("delete from consultas where codigo=%s", codigo_consulta);
         try {
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);

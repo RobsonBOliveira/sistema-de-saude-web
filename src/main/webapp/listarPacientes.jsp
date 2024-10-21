@@ -14,6 +14,15 @@
   <h1>Hospital Ufersa</h1>
 </div>
   <h2>Pacientes cadastrados:</h2>
+
+<div class="avisoExcluido">
+  <%
+    String mensagem = (String) request.getAttribute("mensagem");
+    if(mensagem != null){%>
+      <%=mensagem%>
+  <%
+  }%>
+</div>
 <table>
   <tr>
     <th>CPF</th>
@@ -27,9 +36,17 @@
     for(Paciente paciente : pacientes){
   %>
   <tr>
+    <form action="modificarPaciente" method="post">
     <td><%=paciente.getCpf()%></td>
+    <input type="hidden" name="cpf" value="<%=paciente.getCpf()%>">
     <td><%=paciente.getNome()%></td>
     <td><%=paciente.getTelefone()%></td>
+
+    <td bgcolor="white" style="border: 0; width: 5vh; cursor: pointer;">
+      <input id="botaoAlterar" type="submit" name="alterar" value="Alterar"></td>
+    <td bgcolor="white" style="border: 0;width: 5vh; cursor: pointer;">
+      <input id="botaoExcluir" type="submit" name="excluir" value="Excluir"></td>
+    </form>
   </tr>
   <%}
   %>

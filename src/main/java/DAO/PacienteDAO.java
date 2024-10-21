@@ -125,8 +125,8 @@ public class PacienteDAO {
         }
     }
 
-    public boolean delete(Paciente paciente, String table_name) {
-        String sql = String.format("delete from %s where cpf='%s'", table_name, paciente.getCpf());
+    public boolean delete(String cpf) {
+        String sql = String.format("delete from pacientes where cpf='%s'", cpf);
         try {
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);

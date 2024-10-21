@@ -124,8 +124,8 @@ public class MedicoDAO {
         }
     }
 
-    public boolean delete(Medico medico, String table_name) {
-        String sql = String.format("delete from %s where crm=%s", table_name, medico.getCrm());
+    public boolean delete(int crm) {
+        String sql = String.format("delete from medicos where crm=%s",crm);
         try {
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
