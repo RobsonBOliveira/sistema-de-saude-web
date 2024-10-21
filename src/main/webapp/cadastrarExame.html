@@ -2,14 +2,25 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="Style/cadastrarExame.css">
   <title>Cadastrar Exame</title>
 </head>
 <body>
-  <form action="cadastrarExame" method="post">
-    Código Exame: <input type="text" name="codigo_exame"> <br>
-    Nome Paciente: <input type="text" name="nome_paciente"> <br>
-    Resultado: <input type="text" name="resultado"> <br>
-    <input type="submit"value="Cadastrar">
-  </form>
+<div class="header">
+  <h1>Hospital Ufersa</h1>
+</div>
+<div class="main">
+  <div class="form">
+    <form action="cadastrarExame" method="post">
+      <h3>Código exame:</h3>
+      <input type="text" name="codigo_exame" placeholder="Código exame"> <br>
+      <h3>Nome do paciente:</h3>
+      <input type="text" name="nome_paciente" placeholder="Nome do paciente:"> <br>
+      <h3>Resultado</h3>
+      <input type="text" name="resultado" placeholder="Resultado"> <br>
+     <div class="button"><input type="submit"value="Cadastrar"></div>
+    </form>
+  </div>
+</div>
 </body>
 </html>
