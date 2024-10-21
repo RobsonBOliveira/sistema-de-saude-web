@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>teste</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Simples</title>
+    <link rel="stylesheet" href="Style/testestyle.css">
 </head>
 <body>
-<h1>Primeira pagina do nosso projeto</h1>
+
+<!-- Checkbox para controlar a exibição do popup -->
+<input type="checkbox" class="popup-checkbox" id="popup-checkbox" hidden>
+
+<!-- Botão para abrir o popup -->
+<label class="abrir-popup" for="popup-checkbox">Abrir Popup</label>
+
+<!-- Overlay e conteúdo do popup -->
+<div class="popup-overlay">
+    <div class="popup">
+        <div class="form">
+            <form action="cadastrarPaciente">
+                <h3>CPF:</h3>
+                <input type="text" name="cpf" placeholder="CPF"> <br>
+                <h3>Nome:</h3>
+                <input type="text" name="nome" placeholder="Nome"> <br>
+                <h3>Telefone:</h3>
+                <input type="text" name="telefone" placeholder="Telefone"> <br>
+
+                <label class="fechar-popup" for="popup-checkbox">Alterar</label>
+            </form>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
