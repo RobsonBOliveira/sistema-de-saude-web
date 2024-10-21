@@ -16,11 +16,11 @@
 <h2>Consultas cadastradas:</h2>
 <table>
   <tr>
-    <th>Código</th>
-    <th>Data</th>
-    <th>Observação</th>
-    <th>CRM</th>
     <th>Nome Paciente</th>
+    <th>CRM</th>
+    <th>Observação</th>
+    <th>Data</th>
+    <th>Código</th>
   </tr>
   <%
     ConsultaDAO consultadao = new ConsultaDAO("sistemasaude", usuario, senha);
@@ -29,11 +29,16 @@
     for(Consulta consulta : consultas) {
   %>
   <tr>
-    <td><%=consulta.getCodigo()%></td>
-    <td><%=consulta.getData()%></td>
-    <td><%=consulta.getObservacao()%></td>
-    <td><%=consulta.getCrm()%></td>
     <td><%=consulta.getNome_paciente()%></td>
+    <td><%=consulta.getCrm()%></td>
+    <td><%=consulta.getObservacao()%></td>
+    <td><%=consulta.getData()%></td>
+    <td><%=consulta.getCodigo()%></td>
+
+
+
+
+
   </tr>
   <%}
   %>
