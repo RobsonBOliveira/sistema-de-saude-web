@@ -31,7 +31,7 @@
     </div>
 
     <div class="button-gerenciar">
-      <a href="teste.html">
+      <a href="listarConsultas.jsp">
         <input type="button" value="Gerenciar consultas">
       </a>
     </div>

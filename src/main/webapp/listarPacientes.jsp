@@ -21,8 +21,6 @@
     <th>Telefone</th>
   </tr>
   <%
-      System.out.println(usuario);
-      System.out.println(senha);
     PacienteDAO pacientedao = new PacienteDAO("sistemasaude", usuario, senha);
     List<Paciente> pacientes = pacientedao.list("pacientes");
 
