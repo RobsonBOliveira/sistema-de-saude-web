@@ -22,3 +22,12 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.cadastrarNovoPaciente{
+    position: relative;
+    right: 70px;
+    padding-top:15px;
+    display: flex;
+    justify-content: center;
+
+}

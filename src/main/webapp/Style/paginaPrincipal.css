@@ -85,3 +85,25 @@
     cursor: pointer;
     text-align: left;
 }
+
+.bottom {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-top: 190px;
+}
+.bottom > input{
+    margin-bottom: 20px;
+    font-weight: 0;
+    display: flex;
+    width: 18vw;
+    height: 7vh;
+    border-radius: 10px;
+    background: red;
+    border: none;
+    font-size: x-large;
+    color: white;
+    box-sizing: border-box;
+    cursor: pointer;
+    align-self: flex-end;
+}

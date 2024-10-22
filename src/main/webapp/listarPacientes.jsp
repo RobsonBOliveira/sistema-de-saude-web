@@ -52,5 +52,10 @@
   <%}
   %>
 </table>
+<div class="cadastrarNovoPaciente">
+  <a href="cadastrarPaciente.html">
+    <input type="button" value="Cadastrar novo paciente">
+  </a>
+</div>
 </body>
 </html>

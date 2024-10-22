@@ -30,7 +30,7 @@ public class cadastrarPaciente extends HttpServlet {
         PacienteDAO pacientedao = new PacienteDAO("sistemasaude", usuario, senha);
         pacientedao.insert(paciente);
 
-        response.sendRedirect("cadastrarPaciente.html");
+        response.sendRedirect("listarPacientes.jsp");
     }
 
 }

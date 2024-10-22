@@ -68,5 +68,7 @@
     %>
   </div>
 </div>
-
+<div class="bottom">
+  <input type="submit" value="Comprovante exame">
+</div>
 </body>
