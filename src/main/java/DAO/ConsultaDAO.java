@@ -81,6 +81,27 @@ public class ConsultaDAO {
         return retorno;
     }
 
+    public Consulta list_by_codigo(String table_name, int codigo) {
+        String sql = String.format("select * from %s where codigo=%s", table_name, codigo);
+        Consulta retorno = new Consulta();
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                Consulta consulta = new Consulta();
+                consulta.setCodigo(rs.getInt("codigo"));
+                consulta.setData(rs.getString("data"));
+                consulta.setObservacao(rs.getString("observacao"));
+                consulta.setCrm(rs.getInt("crm"));
+                consulta.setNome_paciente(rs.getString("nome_paciente"));
+                retorno = consulta;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return retorno;
+    }
+
     public boolean insert(Consulta consulta) {
         String sql = String.format("insert into consultas (codigo, data, observacao, crm, nome_paciente) values (%s,'%s'," +
                         "'%s',%s,'%s')", consulta.getCodigo(), consulta.getData(), consulta.getObservacao(),

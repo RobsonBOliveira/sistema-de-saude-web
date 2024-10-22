@@ -80,6 +80,25 @@ public class PacienteDAO {
         return retorno;
     }
 
+    public Paciente list_by_cpf(String table_name, String cpf){
+        String sql = String.format("select * from %s where cpf='%s'", table_name, cpf);
+        Paciente retorno = new Paciente();
+        try{
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            while(rs.next()){
+                Paciente paciente = new Paciente();
+                paciente.setCpf(rs.getString("cpf"));
+                paciente.setNome(rs.getString("nome"));
+                paciente.setTelefone(rs.getString("telefone"));
+                retorno = paciente;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return retorno;
+    }
+
     public boolean insert(Paciente paciente){
         String sql = String.format( "insert into pacientes (cpf, nome, telefone) values ('%s','%s','%s')",
                 paciente.getCpf(), paciente.getNome(), paciente.getTelefone());

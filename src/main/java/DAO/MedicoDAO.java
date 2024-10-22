@@ -60,7 +60,7 @@ public class MedicoDAO {
     }
 
     public List<Medico> list(String table_name){
-        String sql = "select * from %s order by crm asc" + table_name;
+        String sql = String.format("select * from %s order by crm asc", table_name);
         List<Medico> retorno = new ArrayList<>();
         try{
             Statement stm = con.createStatement();
@@ -72,6 +72,26 @@ public class MedicoDAO {
                 medico.setTelefone(rs.getString("telefone"));
                 medico.setEspecializacao(rs.getString("especializacao"));
                 retorno.add(medico);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return retorno;
+    }
+
+    public Medico list_by_crm(String table_name, int crm){
+        String sql = String.format("select * from %s where crm=%s", table_name, crm);
+        Medico retorno = new Medico();
+        try{
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            while(rs.next()){
+                Medico medico = new Medico();
+                medico.setCrm(rs.getInt("crm"));
+                medico.setNome(rs.getString("nome"));
+                medico.setTelefone(rs.getString("telefone"));
+                medico.setEspecializacao(rs.getString("especializacao"));
+                retorno = medico;
             }
         } catch (Exception e) {
             System.out.println(e);

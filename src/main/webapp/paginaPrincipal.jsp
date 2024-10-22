@@ -1,6 +1,7 @@
 <%@ page import="DAO.LoginDAO" %>
 <%@ page import="static Controllers.cadastrarUsuario.usuario" %>
 <%@ page import="static Controllers.cadastrarUsuario.senha" %>
+<%@ page import="java.util.Objects" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <head>
@@ -55,6 +56,16 @@
         <input type="button" value="Alterar exames">
       </a>
     </div>
+    <%
+      if(Objects.equals(usuario, "admin") && Objects.equals(senha, "admin")){
+      %>
+    <div class="button-gerenciar-medicos">
+      <a href="listarMedicos.jsp">
+        <input type="button" value="Gerenciar Médicos">
+      </a>
+    </div>
+      <%}
+    %>
   </div>
 </div>
 

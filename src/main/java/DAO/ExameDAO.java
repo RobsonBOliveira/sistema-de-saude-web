@@ -80,6 +80,25 @@ public class ExameDAO {
         return retorno;
     }
 
+    public Exame list_by_codigo_exame(String table_name, int codigo_exame){
+        String sql = String.format( "select * from %s where codigo_exame=%s", table_name, codigo_exame);
+        Exame retorno = new Exame();
+        try{
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            while(rs.next()){
+                Exame exame = new Exame();
+                exame.setCodigo_exame(rs.getInt("codigo_exame"));
+                exame.setNome_paciente(rs.getString("nome_paciente"));
+                exame.setResultado(rs.getString("resultado"));
+                retorno = exame;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return retorno;
+    }
+
     public boolean insert(Exame exame){
         String sql = String.format( "insert into exames(codigo_exame, nome_paciente, resultado) values (%s,'%s','%s')",
                 exame.getCodigo_exame(), exame.getNome_paciente(), exame.getResultado());

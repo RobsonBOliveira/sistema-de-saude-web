@@ -61,6 +61,10 @@
     background-image: url('../rsrc/gerirexame.png'); /* Adicione o caminho da imagem aqui */
 }
 
+.button-gerenciar-medicos::before {
+    background-image: url('../rsrc/gerirmedicos.jpg'); /* Adicione o caminho da imagem aqui */
+}
+
 /* Estilo do link e botão interno */
 .flex > div > a {
     position: relative;
