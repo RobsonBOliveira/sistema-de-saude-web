@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="header">
-    <h1>Hospital Ufersa</h1>
+        <h1>Hospital Ufersa</h1>
 </div>
 <h2>Log:</h2>
 

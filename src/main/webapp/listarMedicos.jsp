@@ -14,7 +14,8 @@
 </head>
 <body>
 <div class="header">
-  <h1>Hospital Ufersa</h1>
+  <a href="paginaPrincipal.jsp">
+    <h1>Hospital Ufersa</h1></a>
 </div>
 <h2>Médicos cadastrados:</h2>
 <div class="avisoExcluido">

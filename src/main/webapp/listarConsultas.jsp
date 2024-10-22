@@ -12,7 +12,15 @@
 </head>
 <body>
 <div class="header">
-  <h1>Hospital Ufersa</h1>
+  <a href="paginaPrincipal.jsp" style="text-decoration: none; color:black">
+    <h1 style="font-size: xxx-large;
+    background: #3dff33;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+    font-family: 'Poppins', serif;
+    font-weight: normal;">Hospital Ufersa</h1></a>
 </div>
 <h2>Consultas cadastradas:</h2>
 <div class="avisoExcluido">
