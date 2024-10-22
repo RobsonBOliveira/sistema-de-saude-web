@@ -88,10 +88,12 @@
 
 .bottom {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding-right: 10px;
-    padding-top: 190px;
+    padding-left: 10px;
+    padding-top: 100px;
 }
+
 .bottom > input{
     margin-bottom: 20px;
     font-weight: 0;
@@ -99,7 +101,28 @@
     width: 18vw;
     height: 7vh;
     border-radius: 10px;
-    background: red;
+    background: gray;
+    border: none;
+    font-size: x-large;
+    color: white;
+    box-sizing: border-box;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.bottom > a {
+    text-decoration: none;
+}
+
+.bottom > a > input {
+
+    margin-bottom: 20px;
+    font-weight: 0;
+    display: flex;
+    width: 18vw;
+    height: 7vh;
+    border-radius: 10px;
+    background: gray;
     border: none;
     font-size: x-large;
     color: white;

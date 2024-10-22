@@ -68,9 +68,15 @@
     %>
   </div>
 </div>
+
 <form action="imprimePdf" method="post">
+
 <div class="bottom">
+  <a href="listarLog.jsp">
+    <input type="button" value="Log">
+  </a>
   <input type="submit" value="Comprovante exame">
+
 </div>
 </form>
 </body>
