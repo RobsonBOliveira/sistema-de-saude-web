@@ -66,6 +66,10 @@ body > div > div > div > form > h3{
 
 }
 
+body > div > div > div > form > label{
+    font-family: Poppins, serif;
+}
+
 .form > form > input{
     padding: 0px 15px;
     margin-bottom: 30px;
