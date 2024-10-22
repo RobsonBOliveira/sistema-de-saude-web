@@ -31,5 +31,6 @@ public class cadastrarExame extends HttpServlet {
         Exame exame = new Exame(codigo_exame, nome_paciente, resultado);
         ExameDAO examedao = new ExameDAO("sistemasaude", usuario, senha);
         examedao.insert(exame);
+        response.sendRedirect("cadastrarExame.html");
     }
 }

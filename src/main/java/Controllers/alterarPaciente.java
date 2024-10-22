@@ -13,24 +13,25 @@ import java.io.IOException;
 import static Controllers.cadastrarUsuario.senha;
 import static Controllers.cadastrarUsuario.usuario;
 
-@WebServlet("/cadastrarPaciente")
-public class cadastrarPaciente extends HttpServlet {
+@WebServlet("/alterarPaciente")
+public class alterarPaciente extends HttpServlet {
 
-    public cadastrarPaciente(){
+    public alterarPaciente(){
         super();
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String cpfStr = request.getParameter("cpf");
+        String cpfModificar = request.getParameter("cpfModificar");
+        String cpf = request.getParameter("cpf");
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
 
-        Paciente paciente = new Paciente(cpfStr, nome, telefone);
+        Paciente paciente = new Paciente(cpf, nome, telefone);
         PacienteDAO pacientedao = new PacienteDAO("sistemasaude", usuario, senha);
-        pacientedao.insert(paciente);
+        pacientedao.update(paciente, cpfModificar);
 
-        response.sendRedirect("cadastrarPaciente.html");
+        response.sendRedirect("listarPacientes.jsp");
     }
 
 }

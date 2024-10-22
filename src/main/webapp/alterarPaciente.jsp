@@ -17,9 +17,11 @@
         paciente = (Paciente) request.getAttribute("paciente");
     }
 %>
+
 <div class="main">
     <div class="form">
         <form action="alterarPaciente" method="post">
+            <input type="hidden" name="cpfModificar" value=<%=paciente.getCpf()%>>
             <h3>CPF:</h3>
             <input type="text" name="cpf" maxlength="14" placeholder="CPF" value=<%=paciente.getCpf()%>> <br>
             <h3>Nome:</h3>

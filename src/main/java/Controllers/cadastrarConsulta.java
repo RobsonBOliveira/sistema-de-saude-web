@@ -31,5 +31,6 @@ public class cadastrarConsulta extends HttpServlet{
         Consulta consulta = new Consulta(codigo, data, observacao, crm, nome_paciente);
         ConsultaDAO consultadao = new ConsultaDAO("sistemasaude", usuario, senha);
         consultadao.insert(consulta);
+        response.sendRedirect("cadastrarConsulta.html");
     }
 }
