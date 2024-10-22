@@ -29,7 +29,7 @@
             Connection con = null;
             Class.forName("org.postgresql.Driver");
             String URL = "jdbc:postgresql://localhost:5432/sistemasaude";
-            con = DriverManager.getConnection(URL, "admin", "admin");
+            con = DriverManager.getConnection(URL, usuario, senha);
             Statement stm = con.createStatement();
             ResultSet rs = stm.executeQuery(sql);
 
