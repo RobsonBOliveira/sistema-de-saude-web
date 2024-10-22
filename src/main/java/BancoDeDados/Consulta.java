@@ -1,5 +1,8 @@
 package BancoDeDados;
 
+import DAO.ConsultaDAO;
+import DAO.PacienteDAO;
+
 public class Consulta {
     private int codigo;
     private String data;
@@ -56,6 +59,10 @@ public class Consulta {
 
     public void setNome_paciente(String nome_paciente) {
         this.nome_paciente = nome_paciente;
+    }
+
+    public Consulta list_by_codigo(int codigo) {
+        return new ConsultaDAO().list_by_codigo("consultas", codigo);
     }
 
     @Override

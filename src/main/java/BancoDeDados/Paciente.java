@@ -1,5 +1,7 @@
 package BancoDeDados;
 
+import DAO.PacienteDAO;
+
 public class Paciente {
     private String cpf;
     private String nome;
@@ -36,6 +38,10 @@ public class Paciente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Paciente list_by_cpf(String cpf){
+        return new PacienteDAO().list_by_cpf("pacientes", cpf);
     }
 
     @Override

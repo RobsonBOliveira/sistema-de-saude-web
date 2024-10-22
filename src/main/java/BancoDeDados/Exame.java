@@ -1,5 +1,7 @@
 package BancoDeDados;
 
+import DAO.ExameDAO;
+
 public class Exame {
     private int codigo_exame;
     private String nome_paciente;
@@ -38,6 +40,9 @@ public class Exame {
         this.resultado = resultado;
     }
 
+    public Exame list_by_codigo_exame(int codigo_exame) {
+        return new ExameDAO().list_by_codigo_exame("exames", codigo_exame);
+    }
 
 
     @Override

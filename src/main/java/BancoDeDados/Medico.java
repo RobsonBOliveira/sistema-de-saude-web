@@ -1,5 +1,7 @@
 package BancoDeDados;
 
+import DAO.MedicoDAO;
+
 public class Medico {
     private int crm;
     private String nome;
@@ -48,6 +50,9 @@ public class Medico {
         this.telefone = telefone;
     }
 
+    public Medico list_by_crm(int crm){
+        return new MedicoDAO().list_by_crm("medicos", crm);
+    }
 
     @Override
     public String toString(){
