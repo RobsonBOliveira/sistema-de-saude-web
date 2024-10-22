@@ -28,8 +28,7 @@ public class cadastrarPaciente extends HttpServlet {
 
         Paciente paciente = new Paciente(cpfStr, nome, telefone);
         PacienteDAO pacientedao = new PacienteDAO("sistemasaude", usuario, senha);
-        pacientedao.create_table();
-        pacientedao.insert(paciente, "paciente");
+        pacientedao.insert(paciente);
     }
 
 }

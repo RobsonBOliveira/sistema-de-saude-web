@@ -21,7 +21,6 @@ public class PacienteDAO {
             String pass = "luiz2014";
             this.con = DriverManager.getConnection(URL, user, pass);
             System.out.println("Conexao bem sucedida.");
-
         }catch (Exception e){
         System.out.println(e);
       }
@@ -32,10 +31,8 @@ public class PacienteDAO {
                 Class.forName("org.postgresql.Driver");
                 String URL =String.format( "jdbc:postgresql://localhost:5432/%s", database_name);
                 this.con = DriverManager.getConnection(URL, user, pass);
-                //System.out.println("Conexao bem sucedida.");
             } catch (Exception e) {
                 throw new RuntimeException(e);
-                //System.out.println("Conexao falhou.");
             }
     }
 
@@ -45,7 +42,6 @@ public class PacienteDAO {
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
-            //System.out.println("Tabela Criada");
             return true;
         } catch (Exception e) {
             System.out.println(e);
@@ -58,11 +54,9 @@ public class PacienteDAO {
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
-            //System.out.println("Tabela deletada.");
             return true;
         }catch (Exception e){
             System.out.println(e);
-            //System.out.println("Deleção falhou.");
             return false;
         }
     }
@@ -86,9 +80,9 @@ public class PacienteDAO {
         return retorno;
     }
 
-    public boolean insert(Paciente paciente, String table_name){
-        String sql = String.format( "insert into %s (cpf, nome, telefone) values ('%s','%s','%s')",
-                table_name, paciente.getCpf(), paciente.getNome(), paciente.getTelefone());
+    public boolean insert(Paciente paciente){
+        String sql = String.format( "insert into pacientes (cpf, nome, telefone) values ('%s','%s','%s')",
+                paciente.getCpf(), paciente.getNome(), paciente.getTelefone());
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
@@ -99,9 +93,9 @@ public class PacienteDAO {
         }
     }
 
-    public boolean update(Paciente paciente, String table_name){
-        String sql = String.format( "update %s set nome='%s', telefone='%s' where cpf='%s'",
-                table_name, paciente.getNome(), paciente.getTelefone(),  paciente.getCpf());
+    public boolean update(Paciente paciente, String cpf){
+        String sql = String.format( "update pacientes set cpf='%s', nome='%s', telefone='%s' where cpf='%s'",
+                paciente.getCpf(), paciente.getNome(), paciente.getTelefone(),  cpf);
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);

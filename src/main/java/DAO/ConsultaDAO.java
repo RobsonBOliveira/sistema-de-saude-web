@@ -20,10 +20,8 @@ public class ConsultaDAO {
             String user = "postgres";
             String pass = "1406";
             this.con = DriverManager.getConnection(URL, user, pass);
-            //System.out.println("Conexao bem sucedida.");
         } catch (Exception e) {
             throw new RuntimeException(e);
-            //System.out.println("Conexao falhou.");
         }
     }
 
@@ -32,20 +30,17 @@ public class ConsultaDAO {
             Class.forName("org.postgresql.Driver");
             String URL = String.format("jdbc:postgresql://localhost:5432/%s", database_name);
             this.con = DriverManager.getConnection(URL, user, pass);
-            //System.out.println("Conexao bem sucedida.");
         } catch (Exception e) {
             throw new RuntimeException(e);
-            //System.out.println("Conexao falhou.");
         }
     }
 
-    public boolean create_table(String table_name) {
-        String sql = String.format("create table %s (codigo int primary key, data varchar(10) not null," +
-                " observacao varchar(100) not null, crm int not null, nome_paciente varchar(100) not null)", table_name);
+    public boolean create_table() {
+        String sql = "create table consultas (codigo int primary key, data varchar(10) not null," +
+                " observacao varchar(100) not null, crm int not null, nome_paciente varchar(100) not null)";
         try {
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
-            //System.out.println("Tabela criada.");
             return true;
         } catch (Exception e) {
             System.out.println(e);
@@ -86,9 +81,9 @@ public class ConsultaDAO {
         return retorno;
     }
 
-    public boolean insert(Consulta consulta, String table_name) {
-        String sql = String.format("insert into %s (codigo, data, observacao, crm, nome_paciente) values (%s,'%s'," +
-                        "'%s',%s,'%s')", table_name, consulta.getCodigo(), consulta.getData(), consulta.getObservacao(),
+    public boolean insert(Consulta consulta) {
+        String sql = String.format("insert into consultas (codigo, data, observacao, crm, nome_paciente) values (%s,'%s'," +
+                        "'%s',%s,'%s')", consulta.getCodigo(), consulta.getData(), consulta.getObservacao(),
                 consulta.getCrm(), consulta.getNome_paciente());
         try {
             Statement stm = con.createStatement();
@@ -100,10 +95,10 @@ public class ConsultaDAO {
         }
     }
 
-    public boolean update(Consulta consulta, String table_name) {
-        String sql = String.format("update %s set data='%s', observacao='%s', crm=%s, nome_paciente='%s' where codigo=%s",
-                table_name, consulta.getData(), consulta.getObservacao(), consulta.getCrm(),
-                consulta.getNome_paciente());
+    public boolean update(Consulta consulta, int codigo) {
+        String sql = String.format("update consultas set data='%s', observacao='%s', crm=%s, nome_paciente='%s', " +
+                        "codigo=%s where codigo=%s", consulta.getData(), consulta.getObservacao(), consulta.getCrm(),
+                consulta.getNome_paciente(), consulta.getCodigo(), codigo);
         try {
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);

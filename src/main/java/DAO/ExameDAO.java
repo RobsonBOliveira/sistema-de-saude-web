@@ -21,8 +21,6 @@ public class ExameDAO {
             String user = "postgres";
             String pass = "luiz2014";
             this.con = DriverManager.getConnection(URL, user, pass);
-            //System.out.println("Conexao bem sucedida.");
-
         }catch (Exception e){
             System.out.println(e);
         }
@@ -33,10 +31,8 @@ public class ExameDAO {
             Class.forName("org.postgresql.Driver");
             String URL =String.format( "jdbc:postgresql://localhost:5432/%s", database_name);
             this.con = DriverManager.getConnection(URL, user, pass);
-            //System.out.println("Conexao bem sucedida.");
         } catch (Exception e) {
             throw new RuntimeException(e);
-            //System.out.println("Conexao falhou.");
         }
     }
 
@@ -46,7 +42,6 @@ public class ExameDAO {
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
-            //System.out.println("Tabela Criada");
             return true;
         } catch (Exception e) {
             System.out.println(e);
@@ -59,11 +54,9 @@ public class ExameDAO {
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
-            //System.out.println("Tabela deletada.");
             return true;
         }catch (Exception e){
             System.out.println(e);
-            //System.out.println("Deleção falhou.");
             return false;
         }
     }
@@ -87,9 +80,9 @@ public class ExameDAO {
         return retorno;
     }
 
-    public boolean insert(Exame exame, String table_name){
-        String sql = String.format( "insert into %s (codigo_exame, nome_paciente, resultado) values (%s,'%s','%s')",
-                table_name, exame.getCodigo_exame(), exame.getNome_paciente(), exame.getResultado());
+    public boolean insert(Exame exame){
+        String sql = String.format( "insert into exames(codigo_exame, nome_paciente, resultado) values (%s,'%s','%s')",
+                exame.getCodigo_exame(), exame.getNome_paciente(), exame.getResultado());
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
@@ -100,9 +93,9 @@ public class ExameDAO {
         }
     }
 
-    public boolean update(Exame exame, String table_name){
-        String sql = String.format( "update %s set nome_paciente='%s', resultado='%s' where codigo_exame=%s",
-                table_name, exame.getNome_paciente(), exame.getResultado(),  exame.getCodigo_exame());
+    public boolean update(Exame exame, int codigo_exame){
+        String sql = String.format( "update exames set codigo_exame=%s, nome_paciente='%s', resultado='%s' where " +
+                "codigo_exame=%s", exame.getCodigo_exame(), exame.getNome_paciente(), exame.getResultado(),  codigo_exame);
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);

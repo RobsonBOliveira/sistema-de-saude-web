@@ -30,25 +30,15 @@ public class cadastrarUsuarioMedico extends HttpServlet {
         String especializacao = request.getParameter("especializacao");
 
         Integer crm = Integer.parseInt(crmStr);
-        Connection con = null;
-        try {
-            Class.forName("org.postgresql.Driver");
-            String URL = "jdbc:postgresql://localhost:5432/sistemasaude";
-            con = DriverManager.getConnection(URL, usuario, senha);
-            Statement stm = con.createStatement();
 
+        try {
             LoginDAO logindao = new LoginDAO("sistemasaude", "admin", "admin");
             Login login = new Login(usuario, senha, nome);
             logindao.insert(login);
 
-            ResultSet rs = stm.executeQuery("select exists (select * from pg_tables where schemaname = 'public' " +
-                    "and tablename = 'medicos')");
             MedicoDAO medicodao = new MedicoDAO("sistemasaude", "admin", "admin");
             Medico medico = new Medico(crm, nome, telefone, especializacao);
-            if(rs.next()) {
-                medicodao.create_table();
-            }
-            medicodao.insert(medico, "medicos");
+            medicodao.insert(medico);
 
             response.sendRedirect("loginUsuarioCadastrado.html");
         } catch (Exception e) {

@@ -30,7 +30,6 @@ public class cadastrarConsulta extends HttpServlet{
         Integer crm = Integer.parseInt(crmStr);
         Consulta consulta = new Consulta(codigo, data, observacao, crm, nome_paciente);
         ConsultaDAO consultadao = new ConsultaDAO("sistemasaude", usuario, senha);
-        consultadao.create_table("consultas");
-        consultadao.insert(consulta, "consultas");
+        consultadao.insert(consulta);
     }
 }

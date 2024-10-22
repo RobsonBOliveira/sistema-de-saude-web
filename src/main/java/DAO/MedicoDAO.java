@@ -19,10 +19,8 @@ public class MedicoDAO {
             String user = "postgres";
             String pass = "1406";
             this.con = DriverManager.getConnection(URL, user, pass);
-            //System.out.println("Conexao bem sucedida.");
         } catch (Exception e) {
             throw new RuntimeException(e);
-            //System.out.println("Conexao falhou.");
         }
     }
 
@@ -31,10 +29,8 @@ public class MedicoDAO {
             Class.forName("org.postgresql.Driver");
             String URL =String.format( "jdbc:postgresql://localhost:5432/%s", database_name);
             this.con = DriverManager.getConnection(URL, user, pass);
-            //System.out.println("Conexao bem sucedida.");
         } catch (Exception e) {
             throw new RuntimeException(e);
-            //System.out.println("Conexao falhou.");
         }
     }
 
@@ -44,7 +40,6 @@ public class MedicoDAO {
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
-            //System.out.println("Tabela Criada");
             return true;
         } catch (Exception e) {
             System.out.println(e);
@@ -57,11 +52,9 @@ public class MedicoDAO {
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
-            //System.out.println("Tabela deletada.");
             return true;
         }catch (Exception e){
             System.out.println(e);
-            //System.out.println("Deleção falhou.");
             return false;
         }
     }
@@ -86,9 +79,9 @@ public class MedicoDAO {
         return retorno;
     }
 
-    public boolean insert(Medico medico, String table_name){
-        String sql = String.format( "insert into %s (crm, nome, telefone, especializacao) values (%s,'%s','%s','%s')",
-                table_name, medico.getCrm(), medico.getNome(), medico.getTelefone(), medico.getEspecializacao());
+    public boolean insert(Medico medico){
+        String sql = String.format( "insert into medicos (crm, nome, telefone, especializacao) values (%s,'%s','%s','%s')",
+                medico.getCrm(), medico.getNome(), medico.getTelefone(), medico.getEspecializacao());
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
@@ -99,9 +92,9 @@ public class MedicoDAO {
         }
     }
 
-    public boolean update(Medico medico, String table_name){
-        String sql = String.format( "update %s set nome='%s', telefone='%s', especializacao='%s' where crm=%s",
-                table_name, medico.getNome(), medico.getTelefone(), medico.getEspecializacao(), medico.getCrm());
+    public boolean update(Medico medico, int crm){
+        String sql = String.format( "update medicos set crm=%s, nome='%s', telefone='%s', especializacao='%s' where crm=%s",
+                medico.getCrm(), medico.getNome(), medico.getTelefone(), medico.getEspecializacao(), crm);
         try{
             Statement stm = con.createStatement();
             stm.executeUpdate(sql);
