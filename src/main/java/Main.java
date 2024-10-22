@@ -1,10 +1,16 @@
+import com.lowagie.text.Document;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfWriter;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class Main {
     public static void main(String[] args){
-        //coloque seu usuario do PostgreSQL
+        /*//coloque seu usuario do PostgreSQL
         String user = "postgres";
         //Coloque a sua senha do PostgreSQL
         String pass = "1406";
@@ -51,6 +57,18 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e);
             System.out.println("Falha ao adicionar.");
+        }*/
+        Document doc = new Document();
+        try{
+            PdfWriter.getInstance(doc, new FileOutputStream("66666666.pdf"));
+
+            doc.open();
+
+            Paragraph p = new Paragraph("Qualquer coisa");
+            doc.add(p);
+            doc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
         }
     }
 }

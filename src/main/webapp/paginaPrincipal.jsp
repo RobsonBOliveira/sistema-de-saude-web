@@ -68,7 +68,9 @@
     %>
   </div>
 </div>
+<form action="imprimePdf" method="post">
 <div class="bottom">
   <input type="submit" value="Comprovante exame">
 </div>
+</form>
 </body>
