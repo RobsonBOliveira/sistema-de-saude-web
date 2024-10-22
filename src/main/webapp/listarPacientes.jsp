@@ -8,6 +8,7 @@
 <head>
     <title>Pacientes</title>
     <link rel="stylesheet" href="Style/listarPacientes.css">
+    <link rel="stylesheet" href="Style/style.css">
 </head>
 <body>
 <div class="header">

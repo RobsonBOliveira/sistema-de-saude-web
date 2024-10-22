@@ -11,16 +11,6 @@ body {
     align-items:  center ;
     flex-direction: column;
 }
-.header > h1{
-    font-size: xxx-large;
-    background: #3dff33;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    text-align: center;
-    font-family: 'Poppins', serif;
-    font-weight: normal;
-}
 
 .form{
     font-family: "Poppins", "serif";

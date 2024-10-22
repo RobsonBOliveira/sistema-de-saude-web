@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/cadastrarPaciente.css">
 </head>
 <body>
-  <form action="cadastrarPaciente" method="post">
-    CPF: <input type="text" name="cpf"> <br>
-    Nome: <input type="text" name="nome"> <br>
-    Telefone: <input type="text" name="telefone"> <br>
-    <input type="submit"value="Cadastrar">
-  </form>
+<div class="header">
+    <h1>Hospital Ufersa</h1>
+</div>
+<div class="main">
+    <div class="form">
+        <form action="cadastrarPaciente" method="post">
+            <h3>CPF:</h3>
+            <input type="text" name="cpf" placeholder="CPF"> <br>
+            <h3>Nome:</h3>
+            <input type="text" name="nome" placeholder="Nome"> <br>
+            <h3>Telefone:</h3>
+            <input type="text" name="telefone" placeholder="Telefone"> <br>
+            <div class="button"><input type="submit"value="Cadastrar"></div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

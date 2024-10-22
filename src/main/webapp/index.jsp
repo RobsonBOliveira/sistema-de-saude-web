@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="Style/index.css">
+    <link rel="stylesheet" href="Style/style.css">
 
     <title>Login</title>
 </head>

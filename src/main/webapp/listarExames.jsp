@@ -7,7 +7,9 @@
 <html>
 <head>
   <title>Exames</title>
-  <link rel="stylesheet" href="Style/listarExames.css">
+    <link rel="stylesheet" href="Style/listarExames.css">
+    <link rel="stylesheet" href="Style/style.css">
+
 </head>
 <body>
 <div class="header">
