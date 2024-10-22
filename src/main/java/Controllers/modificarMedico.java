@@ -29,10 +29,10 @@ public class modificarMedico extends HttpServlet {
             request.setAttribute("mensagem", "Médico excluído com sucesso!");
             dispatcher.forward(request, response);
         } else if(alterar != null && crm != null){
-        Medico medico = new MedicoDAO("sistemasaude", usuario, senha).list_by_crm("medicos", Integer.valueOf(crm));
-        RequestDispatcher dispatcher = request.getRequestDispatcher("alterarMedico.jsp");
-        request.setAttribute("medico", medico);
-        dispatcher.forward(request, response);
+            Medico medico = new MedicoDAO("sistemasaude", usuario, senha).list_by_crm("medicos", Integer.valueOf(crm));
+            RequestDispatcher dispatcher = request.getRequestDispatcher("alterarMedico.jsp");
+            request.setAttribute("medico", medico);
+            dispatcher.forward(request, response);
         }
     }
 }
