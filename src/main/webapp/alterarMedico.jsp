@@ -20,8 +20,8 @@
 
 <div class="main">
     <div class="form">
-        <form action="cadastrarUsuarioMedico" method="post">
-            <input type="hidden" name="crmModificar" value=<%=medico.getCrm()%>>
+        <form action="alterarMedico" method="post">
+            <input type="hidden" name="crmAlterar" value=<%=medico.getCrm()%>>
             <h3>CRM</h3>
             <input type="text" name="crm" placeholder="CRM" value=<%=medico.getCrm()%>> <br>
             <h3>Nome</h3>
