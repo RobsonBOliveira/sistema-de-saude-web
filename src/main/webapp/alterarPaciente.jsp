@@ -15,7 +15,6 @@
     Paciente paciente = null;
     if(request.getAttribute("paciente") != null){
         paciente = (Paciente) request.getAttribute("paciente");
-        System.out.println(paciente.getNome());
     }
 %>
 <div class="main">
