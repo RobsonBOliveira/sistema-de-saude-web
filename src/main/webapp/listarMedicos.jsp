@@ -47,24 +47,7 @@
       <td><%=medico.getEspecializacao()%></td>
 
       <td bgcolor="white" style="border: 0; width: 5vh; cursor: pointer;">
-        <input type="checkbox" class="popup-checkbox" id="popup-checkbox" hidden>
-        <label class="abrir-popup" for="popup-checkbox">Alterar</label>
-        <div class="popup-overlay">
-          <div class="popup">
-            <div class="form">
-              <form action="cadastrarPaciente">
-                <h3>CPF:</h3>
-                <input type="text" name="cpf" placeholder="CPF"> <br>
-                <h3>Nome:</h3>
-                <input type="text" name="nome" placeholder="Nome"> <br>
-                <h3>Telefone:</h3>
-                <input type="text" name="telefone" placeholder="Telefone"> <br>
-
-                <label class="fechar-popup" for="popup-checkbox">Alterar</label>
-              </form>
-            </div>
-          </div>
-        </div>
+        <input id="botaoAlterar" type="submit" name="alterar" value="Alterar"></td>
       <td bgcolor="white" style="border: 0;width: 5vh; cursor: pointer;">
         <input id="botaoExcluir" type="submit" name="excluir" value="Excluir"></td>
     </form>
